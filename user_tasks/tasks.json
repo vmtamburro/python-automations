@@ -1,0 +1,20 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "create conda virtual environment",
+            "type": "shell",
+            "command": "chmod u+x ../python-automations/bash_scripts/create_conda.sh; sh ../python-automations/bash_scripts/create_conda.sh ${input:environment_name}",
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id":"environment_name",
+            "description": "name of the virtual environment",
+            "type": "promptString"
+        }
+    ]
+}
