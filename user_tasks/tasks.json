@@ -8,6 +8,12 @@
             "type": "shell",
             "command": "chmod u+x ../python-automations/bash_scripts/create_conda.sh; sh ../python-automations/bash_scripts/create_conda.sh ${input:environment_name}",
             "problemMatcher": []
+        },
+        {
+            "label": "remove conda virtual environment",
+            "type": "shell",
+            "command": "chmod u+x ../python-automations/bash_scripts/remove_conda.sh; sh ../python-automations/bash_scripts/remove_conda.sh ${input:environment_name}",
+            "problemMatcher": []
         }
     ],
     "inputs": [
