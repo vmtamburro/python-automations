@@ -14,6 +14,12 @@
             "type": "shell",
             "command": "chmod u+x ../python-automations/bash_scripts/remove_conda.sh; sh ../python-automations/bash_scripts/remove_conda.sh ${input:environment_name}",
             "problemMatcher": []
+        },
+        {
+            "label": "print unit test commands",
+            "type": "shell",
+            "command": "echo python -m pytest --cov-report=xml:coverage.xml --cov=./ -n auto --verbose; echo coverage html -i",
+            "problemMatcher": []
         }
     ],
     "inputs": [
