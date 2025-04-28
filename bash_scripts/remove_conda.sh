@@ -1,2 +1,2 @@
 conda init
-echo conda env remove --name $1
+conda env remove --name $1
