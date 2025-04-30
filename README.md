@@ -1,4 +1,4 @@
-# Python Automation
+# Python Automations
 
 ## Overview
 Local Python automation scripts leveraging [VSCode tasks](https://code.visualstudio.com/docs/debugtest/tasks) on macOS to streamline development workflows. These automations include creating and tearing down virtual environments, debugging processes, and integrating with VSCode's task and debugging features.
