@@ -1,8 +1,12 @@
-Local python automations using VSCode for macOS
+# Python Automation
 
-https://code.visualstudio.com/docs/debugtest/tasks
+## Overview
+Local Python automation scripts leveraging [VSCode tasks](https://code.visualstudio.com/docs/debugtest/tasks) on macOS to streamline development workflows. These automations include creating and tearing down virtual environments, debugging processes, and integrating with VSCode's task and debugging features.
 
-##  Creating and Destorying Conda Environments
+
+## Setup Instructions
+
+###  Creating and Destorying Conda Environments
 1. Clone this repo at the same file directory level as other python repositories that require a virtual environment.
 2. Copy the tasks.json into the same directory as  your VSCode settings.json location. `HOME/Library/Application\ Support/Code/User/settings.json` for macOS. See https://code.visualstudio.com/docs/configure/settings#_settings-file-locations
 3. Run `shift + command + p` to open the command pallete
@@ -12,7 +16,7 @@ https://code.visualstudio.com/docs/debugtest/tasks
 Note: for easy access to the global tasks.json file in the future, run `Tasks: Open User Tasks` in the command pallete. See https://stackoverflow.com/questions/76141850/how-can-i-set-a-default-tasks-json-file-for-visual-studio-code
 
 
-## Attaching Debugger to a current running Process
+### Attaching Debugger to a current running Process
 1. Add the below code to wherever you'd like the execution to pause to allow you to attach to the process, and add a breakpoint where you would like the debugger to pause at.
 
 ```python
@@ -42,7 +46,7 @@ Note: for easy access to the global tasks.json file in the future, run `Tasks: O
 6. You should hit the breakpoint, and be able to step through and interpret the code
 
 
-## Launching from the Debugger 
+### Launching from the Debugger 
 
 1. Add a command following to your `.vscode/launch.json` file similar to the below:
 ```json
