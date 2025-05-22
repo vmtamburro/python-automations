@@ -32,6 +32,44 @@
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "justMyCode": false
+        },
+        {
+            "name": "Python Debugger: Pytest (integration)",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "-m", "integration"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Python Debugger: Pytest (not integration)",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "-m", "not integration"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Python Debugger: Python File TFX",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "tfx_common.cli",
+            "args": [
+              "compile",
+              "pipelines",
+              "DeviceGraphPipeline"
+            ],
+            "cwd": "${workspaceFolder}",
+            "justMyCode": false
         }
+ 
     ]
 }
