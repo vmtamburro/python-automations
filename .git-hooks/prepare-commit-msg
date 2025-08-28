@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Only modify commit messages for merges, rebases, and squashes
+if [[ "$2" == "merge" ]] || [[ "$2" == "squash" ]] || [[ "$2" == "commit" ]]; then
+  exit 0
+fi
+
+# Extract ticket number from branch name (e.g., feature/ABC-123-description)
+branch_name=$(git rev-parse --abbrev-ref HEAD)
+echo "branch name: $branch_name"
+ticket_number=$(echo "$branch_name" | grep -oE '[A-Za-z]+-[0-9]+')
+echo "ticket_number: $ticket_number"
+
+# Prepend ticket number to commit message if found
+if [[ "$ticket_number" != "" ]]; then
+  sed -i.bak -e "1s/^/$ticket_number /" "$1"
+fi
