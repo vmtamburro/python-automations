@@ -67,3 +67,54 @@ Note: for easy access to the global tasks.json file in the future, run `Tasks: O
 3. Make sure you have the python interpreter to the correct conda environment. Open the control pallete, and type `Python: Select Interpreter`. Select the one that pretains to your repo.
 4. Run the command in your console. This will pause at your added debugger statement from step 1, and will wait for you to attach the debugger.
 5. Click the `Run and Debug` tab in VSCode, and select your  configuration. In this example, it would be `Python: Attach to Debugger`.
+
+
+### Pre-Commit Git Hooks
+This repository includes a git hook that automatically prepends ticket numbers to commit messages based on your branch name. For example, if you are on a branch like chore/ems-12345-add-login, and commit with: 
+
+```
+git commit -m "implement user authentication
+```
+
+The hook automatically changes your message to:
+
+```
+ems-12345 implement user authentication
+```
+
+### Setup
+
+1. Copy the hook into your global git hooks directory. `(~/.git-hooks)`
+2. Ensure the hook name remains `prepare-commit-msg`, and ensure it is executable with `chmod +x ~/.git-hooks/prepare-commit-msg`
+3. Configure git to use global hooks
+
+```
+  git config --global core.hooksPath ~/.git-hooks
+```
+
+4. Verify the setup
+
+```
+# Check if the hook exists and is executable
+ls -la ~/.git-hooks/prepare-commit-msg
+
+# Verify Git configuration
+git config --global --get core.hooksPath
+# Should output: /Users/yourusername/.git-hooks
+```
+
+5. Test the hook
+
+```
+# Create a test branch with a ticket number
+git checkout -b feature/test-123-verify-hook
+
+# Make a commit
+echo "test" > test.txt
+git add test.txt
+git commit -m "testing the hook"
+
+# Check the result
+git log -1 --pretty=format:"%s"
+# Should show: "test-123 testing the hook"
+```
